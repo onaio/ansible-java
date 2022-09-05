@@ -8,7 +8,7 @@
     recurse: true
   when:
     - ansible_distribution == 'Ubuntu'
-    - ansible_distribution_version == '18.04' or ansible_distribution_version == '20.04'
+    - ansible_distribution_version is version("18.04", ">=")
 
 - name: Add Java 11 Repository for ubuntu 16.04
   become: yes
