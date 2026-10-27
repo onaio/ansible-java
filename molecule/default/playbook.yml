@@ -5,9 +5,13 @@
 
   pre_tasks:
     - name: Update apt cache.
-      apt: update_cache=true cache_valid_time=600
+      ansible.builtin.apt:
+        update_cache: "true"
+        cache_valid_time: "600"
       when: ansible_os_family == 'Debian'
       changed_when: false
 
-  roles:
-    - role: ../../..
+  tasks:
+    - name: Run the role
+      ansible.builtin.include_role:
+        name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') }}"
