@@ -1,0 +1,13 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Run java
+      ansible.builtin.command: java -version
+      register: java_version
+      changed_when: false
+
+    - name: Assert OpenJDK is installed
+      ansible.builtin.assert:
+        that:
+          - "'openjdk' in java_version.stderr | lower"
