@@ -4,3 +4,6 @@
 # java_packages: []
 
 java_home: ""
+
+# Point the system `java` alternative at {{ java_home }}/bin/java.
+java_set_default: false

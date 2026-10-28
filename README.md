@@ -22,6 +22,10 @@ Set the version/development kit of Java to install, along with any other necessa
 
 If set, the role will set the global environment variable `JAVA_HOME` to this value.
 
+    java_set_default: false
+
+If `true` and `java_home` is set, the role makes `{{ java_home }}/bin/java` the system default `java` using `alternatives`. Requires the `community.general` collection.
+
 ## Dependencies
 
 None.
